@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Emmanuel Mbulu, emmanuel.mbulu@gmail.com">
+  <meta name="description" content="Spring Boot Book Demo of Web Application Architecture assignments by Emmanuel">
+  <meta name="keywords" content="MIU, WAA, DE Course">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books - Search result</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+  <div class="container mt-3 mb-3">
+    <h1>Search result for <mark th:text="${keyword}"></mark></h1>
+    <hr>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>ISBN</th>
+          <th>Author</th>
+          <th>Published date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="item : ${books}">
+          <td th:text="${item.title}">Title</td>
+          <td th:text="${item.isbn}">ISBN</td>
+          <td th:text="${item.author}">Author</td>
+          <td th:text="${item.publishedDate}">Date</td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(books)}">
+          <td colspan="4">No result found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>
+</html>
