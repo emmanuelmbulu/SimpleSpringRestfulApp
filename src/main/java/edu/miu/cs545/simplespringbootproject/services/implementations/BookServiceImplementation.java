@@ -33,4 +33,19 @@ public class BookServiceImplementation implements BookService {
                                 .contains(query))
                 .toList();
     }
+
+    @Override
+    public Book saveBook(Book book) {
+        return BookRepository.addOne(book);
+    }
+
+    @Override
+    public Book deleteBook(int bookId) {
+        return BookRepository.deleteBook(bookId);
+    }
+
+    @Override
+    public Book updateBook(Book book) {
+        return BookRepository.updateBook(book);
+    }
 }

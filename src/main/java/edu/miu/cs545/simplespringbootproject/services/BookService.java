@@ -10,4 +10,7 @@ public interface BookService {
     List<Book> getAllBooks();
     Book getBook(int id);
     List<Book> searchByTitle(String keyword);
+    Book saveBook(Book book);
+    Book deleteBook(int bookId);
+    Book updateBook(Book book);
 }
